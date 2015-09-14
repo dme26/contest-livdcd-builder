@@ -29,4 +29,5 @@ apt-get update -y
 apt-get install -y uck syslinux
 
 uck-remaster /vagrant/cache/ubuntu-14.04-desktop-amd64.iso /vagrant/on-VM/uck-customization-scripts
+mv /root/tmp/remaster-new-files/livecd.iso /vagrant/cache/
 # sudo mv ~vagrant/tmp/remaster-new-files/livecd.iso /vagrant/cache/
