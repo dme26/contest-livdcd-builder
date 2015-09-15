@@ -5,12 +5,12 @@ This repository contains Vagrant configuration to allow unnattended LiveCD / Liv
 
 ## Usage
 1. `git clone` this repository (in a shell session)
-1. `./on-VM/uck-customization-scripts/customize` will build Yuki's West Australian setup.
-  - Tweak this for site needs (e.g. timezone, firewally, etc).
+2. Tweak `./on-VM/uck-customization-scripts/customize` for your site's needs, e.g. timezone, firewalling, etc.
+  - If untweaked, Yuki's West Australian setup will be built (which is fine for testing, in any case).
   - (I aim to better embed Yuki's setup scripts in future than the copy/paste done here.)
-1. within your clone of the repository run `vagrant up`
+3. Within your clone of the repository run `vagrant up`
   - (wait a long time and/or watch the console output scroll by...)
-1. `./cache/livecd.iso` should be ready to burn / run in a VM / etc.
+4. Burn / run in a VM / etc. the `./cache/livecd.iso` file produced.
 
 ## Clean up
 - Vagrant will leave a VM running after the ISO is built.
