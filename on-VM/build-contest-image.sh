@@ -2,20 +2,22 @@
 
 # Vagrant shell provisioners run as root
 
+echo "--> Start Vagrant shell provisioner: $0"
+
 . /vagrant/on-VM/config.sh
 . /vagrant/on-VM/local-overrides.sh
 
 ISO_IMAGE="/vagrant/cache/$(basename $ISO_URL)"
 
-# echo $ISO_URL
-
 if [ -e $ISO_IMAGE ]
 then
     echo "$ISO_IMAGE already present. Continuing."
 else
+    DIR="$(dirname $ISO_IMAGE)"
+    [ -d "$DIR" ] || mkdir -p "$DIR"
     echo "Downloading $ISO_URL to $ISO_IMAGE."
     pushd /vagrant/cache
-    curl -C - -O $ISO_URL
+    curl -s -S -C - -O $ISO_URL
     popd
 fi
 
@@ -28,6 +30,8 @@ fi
 apt-get update -y
 apt-get install -y uck syslinux
 
-uck-remaster /vagrant/cache/ubuntu-14.04-desktop-amd64.iso /vagrant/on-VM/uck-customization-scripts
+uck-remaster "$ISO_IMAGE" /vagrant/on-VM/uck-customization-scripts
+
 mv /root/tmp/remaster-new-files/livecd.iso /vagrant/cache/
-# sudo mv ~vagrant/tmp/remaster-new-files/livecd.iso /vagrant/cache/
+
+echo "--> cache/livecd.iso will now exist if provisioner completed successfully."
