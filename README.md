@@ -1,7 +1,7 @@
 # Programming Contest LiveCD Builder
-This repository contains Vagrant configuration to allow unnattended LiveCD / LiveUSB ISO building using Yuki's Ubuntu Construction Kit setup.
+This repository contains Vagrant configuration to allow unnattended LiveCD / LiveUSB ISO building using [Yuki's Ubuntu Construction Kit setup](https://github.com/N-Yuki/sppc-ubuntu-customisation) on any OS supported by [Vagrant](https://www.vagrantup.com) (e.g., Linux, MacOS, Windows).
 ## One-off setup
-- Install Vagrant
+- Install [Vagrant](https://www.vagrantup.com) from https://www.vagrantup.com
 
 ## Usage
 1. `git clone` this repository (in a shell session)
