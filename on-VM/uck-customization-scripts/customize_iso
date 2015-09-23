@@ -122,6 +122,13 @@ cp -af boot/* "$ISO_REMASTER_DIR/isolinux/" ||
 
 popd >/dev/null
 
+# -\/- dme patch boot parameters
+if [ "$PCC_PERSISTENT" = "yes" ]; then
+	echo "attempting to patch boot parameters to include 'persistent'"
+	sed --in-place '/boot=casper/s/--/-- persistent/' "$ISO_REMASTER_DIR"/isolinux/*.cfg
+fi
+# -/\- dme patch boot parameters
+
 # Cleanup
 [ "$BUILD_DIR" != "/" ] && rm -rf "$BUILD_DIR"
 
