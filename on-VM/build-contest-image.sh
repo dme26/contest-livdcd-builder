@@ -4,8 +4,10 @@
 
 echo "--> Start Vagrant shell provisioner: $0"
 
-. /vagrant/on-VM/config.sh
-. /vagrant/on-VM/local-overrides.sh
+source /vagrant/on-VM/config.sh
+
+OVERRIDES_FILE=/vagrant/on-VM/local-overrides.sh
+[ -e "$OVERRIDES_FILE" ] && source $OVERRIDES_FILE
 
 ISO_IMAGE="/vagrant/cache/$(basename $ISO_URL)"
 
