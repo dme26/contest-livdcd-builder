@@ -2,3 +2,4 @@ cache
 .vagrant
 local-apt-sources
 local-overrides.sh
+casper-rw.vdi
